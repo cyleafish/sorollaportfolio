@@ -14,6 +14,7 @@ export default {
         pblueHover: "10px 10px #96C7F2",
         pgreenHover: "10px 10px #ADF296",
         ppinkHover: "10px 10px #F396E5",
+        pyellowHover: "10px 10px #F2CF96",
         pyellow: "7px 7px #F2CF96",
       },
       colors: {
@@ -48,6 +49,8 @@ export default {
       },
       margin: {
         30: "7.3rem",
+        'heading': '2rem',  // 自定義標題的 margin
+        'paragraph': '1.5rem',  // 自定義段落的 margin
       },
       borderWidth: {
         1: "1px",

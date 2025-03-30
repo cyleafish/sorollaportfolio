@@ -1,0 +1,45 @@
+---
+import { getCollection } from 'astro:content';
+import BaseHead from "@/components/BaseHead.astro";
+import Header from "@/components/Header.astro";
+import Footer from "@/components/Footer_gallery.astro";
+
+const { category } = Astro.params;
+console.log("Current category:", category);
+
+// 取得該分類的所有作品
+const galleryItems = await getCollection('gallery', (entry) => entry.data.category === category);
+
+if (galleryItems.length === 0) {
+  throw new Error(`No gallery items found for category: ${category}`);
+}
+
+// 取第一個作品
+const artFile = galleryItems[0];
+console.log("artFile:", JSON.stringify(artFile, null, 2));
+
+// **使用 Astro 內建 Markdown 渲染內容**
+const rendered = artFile.rendered?.html || "<p>No content available.</p>";
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <BaseHead title={`Gallery - ${category}`} description={artFile.data.description || "No description"} />
+  </head>
+  <body>
+    <Header />
+    <main class="container mx-auto md:px-10 py-20">
+      <h1 class="text-4xl font-bold">Gallery: {category}</h1>
+      <div class="gallery-items">
+        <div class="gallery-item">
+          <h2>{artFile.data.title}</h2>
+          <div class="gallery-content">
+            <div set:html={rendered} /> <!-- 這裡直接插入 Markdown 轉換後的 HTML -->
+          </div>
+        </div>
+      </div>
+    </main>
+    <Footer />
+  </body>
+</html>

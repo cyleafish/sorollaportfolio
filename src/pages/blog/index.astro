@@ -8,6 +8,9 @@ import WhatIDo from "@/components/WhatIDo.astro";
 const posts = (await getCollection("blog")).sort(
   (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
 );
+// const projects = (await getCollection("project")).sort(
+//   (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+// );
 ---
 
 <!doctype html>

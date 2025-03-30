@@ -1,0 +1,25 @@
+---
+import { type CollectionEntry, getCollection } from "astro:content";
+import BlogPost from "@/layouts/BlogPost.astro";
+import { render } from "astro:content";
+
+export async function getStaticPaths() {
+  const working_experience = await getCollection("working_experience");
+  return working_experience.map((working_experience) => ({
+    params: { slug: working_experience.id },
+    props: working_experience,
+  }));
+}
+
+export const prerender = true;
+
+type Props = CollectionEntry<"working_experience">;
+
+const working_experience = Astro.props;
+const { Content } = await render(working_experience);
+---
+
+<BlogPost {...working_experience.data}>
+  <Content />
+</BlogPost>
+

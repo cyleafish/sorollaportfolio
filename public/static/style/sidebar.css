@@ -1,0 +1,122 @@
+/* sidebar.css */
+
+/* Sidebar Container */
+#sidebar {
+    position: fixed;
+    top: 30%;
+    left: 1px;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    z-index: 1000;
+}
+
+/* 樣式套用於所有 Sidebar 項目 */
+#sidebar > * {
+    transition: all 0.3s ease;
+}
+
+/* My Profile Hover Menu */
+.hover-menu {
+    width: 90px;
+    background-color: #4c5baf;
+    border-radius: 8px;
+    overflow: hidden;
+    color: white;
+    text-align: center;
+    cursor: pointer;
+}
+
+#sidebar .hover-menu:hover {
+    width: 150px;
+}
+
+.hover-menu span {
+    color: white;
+    display: block;
+    padding: 10px;
+    font-weight: bold;
+}
+
+.menu-content {
+    display: none;
+    flex-direction: column;
+}
+
+.hover-menu:hover .menu-content {
+    display: flex;
+}
+
+.menu-content a {
+    color: white;
+    text-decoration: none;
+    padding: 8px;
+    text-align: left;
+    padding-left: 20px;
+    background-color: #4c5baf;
+}
+
+.menu-content a:hover {
+    background-color: #333;
+}
+
+/* gallery Link */
+#gallery {
+    width: 70px;
+    background-color: #4c5baf;
+    border-radius: 8px;
+    padding: 10px;
+    text-align: center;
+}
+
+#sidebar #gallery:hover {
+    width: 130px;
+}
+
+#gallery a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+#gallery a:hover {
+    color: #333;
+}
+
+/* 其他新增的 Sidebar 項目樣式 */
+#sidebar  {
+    /* background-color: #6c7bce; */
+    padding: 10px;
+    border-radius: 8px;
+    color: white;
+    text-align: center;
+    cursor: pointer;
+}
+
+#sidebar .hover {
+    background-color: #4c5baf;
+}
+
+/* Add any additional universal styles here */
+#ThreeD {
+    width: 70px;
+    background-color: #4c5baf;
+    border-radius: 8px;
+    padding: 10px;
+    text-align: center;
+}
+
+#sidebar #ThreeD:hover {
+    width: 130px;
+}
+
+#ThreeD a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+#ThreeD a:hover {
+    color: #333;
+}

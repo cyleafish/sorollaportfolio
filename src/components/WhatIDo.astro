@@ -3,6 +3,15 @@ import { getCollection } from "astro:content";
 const posts = (await getCollection("blog")).sort(
   (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
 );
+const projects = (await getCollection("projects")).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+const working_experience = (await getCollection("working_experience")).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+const activity_experience = (await getCollection("activity_experience")).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
 import FormattedDate from "@/components/FormattedDate.astro";
 import { Icon } from "astro-icon/components";
 
@@ -19,26 +28,83 @@ const getRandomClass = () => {
 ---
 
 <section class="flex flex-col text-center gap-4 " >
-  <p class="text-pblack">It is necessary to observe.</p>
-  <h2 class="text-4xl font-bold">Treated like a portrait.</h2>
-  <ul class="flex flex-wrap justify-center md:justify-start gap-8 py-20">
+  <h2 class="text-4xl font-bold">About Me.</h2>
+  <p class="text-pblack">
+    我是個對新事物充滿好奇心的探索者，喜歡挑戰各種有趣的專案，然後把學到的技能變成自己的超能力⚡！
+    <br>
+    運用技術來解決生活中的大小問題，有時也只是單純想讓生活變得更有趣而已 🎮。
+  </p>
+  <br>
+  <h4 class="text-3xl font-bold py-5">Project</h4>
+  <ul class="flex flex-wrap justify-center md:justify-center gap-8 py-1">
     {
-      posts.map((post) => {
+      projects.map((projects) => {
         const randomClass = getRandomClass();
         return (
-          <li class="w-72 text-left rounded-3xl border-1 border-black shadow-card group hover:shadow-hover transition  px-4 py-6 flex flex-col gap-6">
-            <a href={`/blog/${post.id}/`} class="flex flex-col gap-4">
+          <li class="w-60 text-left rounded-3xl border-1 border-black shadow-card group hover:shadow-hover transition  px-4 py-3 flex flex-col gap-6">
+            <a href={`/projects/${projects.id}/`} class="flex flex-col gap-4">
               <div
                 class={`${randomClass} text-4xl p-2 self-start border-1 border-black shadow-card1 group-hover:shadow-card transition`}
               >
-                <Icon name={post.data.icon} />
+                <Icon name={projects.data.icon} />
               </div>
-              <h4 class="text-xl font-semibold">{post.data.title}</h4>
-              <p class="date -mt-4 text-sm font-light">
-                <FormattedDate date={post.data.pubDate} />
+              <h4 class="text-xl font-semibold">{projects.data.title}</h4>
+              <p class="date -mt-4 text-sm  font-light">
+                {projects.data.subtitle}
               </p>
             </a>
-            <div set:html={post.data.description} />
+            <div set:html={projects.data.description} class="text-sm leading-tight"/>
+          </li>
+        );
+      })
+    }
+  </ul>
+  <br>
+  <h4 class="text-3xl font-bold py-5">Working Experience</h4>
+  <ul class="flex flex-wrap justify-center md:justify-center gap-8 py-1">
+    {
+      working_experience.map((working_experience) => {
+        const randomClass = getRandomClass();
+        return (
+          <li class="w-60 text-left rounded-3xl border-1 border-black shadow-card group hover:shadow-hover transition  px-4 py-3 flex flex-col gap-6">
+            <div class="flex flex-col gap-4"> 
+              <div
+                class={`${randomClass} text-4xl p-2 self-start border-1 border-black shadow-card1 group-hover:shadow-card transition`}
+              >
+                <Icon name={working_experience.data.icon} />
+              </div>
+              <h4 set:html={working_experience.data.title} class="text-xl font-semibold"></h4>
+              <p class="date -mt-4 text-sm  font-light">
+                {working_experience.data.subtitle}
+                {/* <FormattedDate date={working_experience.data.pubDate} ></FormattedDate> */}
+              </p>
+            </a>
+            <div set:html={working_experience.data.description} class="text-sm leading-tight"/>
+          </li>
+        );
+      })
+    }
+  </ul>
+  <br>
+  <h4 class="text-3xl font-bold py-5">Activity Experience</h4>
+  <ul class="flex flex-wrap justify-center md:justify-center gap-8 py-1">
+    {
+      activity_experience.map((activity_experience) => {
+        const randomClass = getRandomClass();
+        return (
+          <li class="w-60 text-left rounded-3xl border-1 border-black shadow-card group hover:shadow-hover transition  px-4 py-3 flex flex-col gap-6">
+            <a href={`/activity_experience/${activity_experience.id}/`} class="flex flex-col gap-4">
+              <div
+                class={`${randomClass} text-4xl p-2 self-start border-1 border-black shadow-card1 group-hover:shadow-card transition`}
+              >
+                <Icon name={activity_experience.data.icon} />
+              </div>
+              <h4 set:html={activity_experience.data.title} class="text-xl font-semibold"></h4>
+              <p set:html={activity_experience.data.subtitle} class="date -mt-4 text-sm  font-light">
+                
+              </p>
+            </a>
+            <div set:html={activity_experience.data.description} class="text-sm leading-tight"/>
           </li>
         );
       })

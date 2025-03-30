@@ -1,0 +1,379 @@
+/* CSS 變數 */
+:root {
+    --primary-color: #4c5baf;
+    --secondary-color: #333;
+    --background-light: #f4f4f4;
+    --font-main: Arial, sans-serif;
+    --font-serif: 'Times New Roman', serif;
+    --side-color: #818ed5;
+}
+
+/* 全局樣式 */
+body {
+    font-family: var(--font-main);
+    background-color: #f3f3f3;
+    color: var(--secondary-color);
+    margin: 30px auto;
+    max-width: 1200px; /* 設置最大寬度 */
+    display: flex;
+    align-items: center;
+}
+
+/* Sidebar Container */
+#sidebar {
+    position: fixed;
+    top: 30%;
+    left: 1px;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    z-index: 1000;
+}
+
+/* My Profile Hover Menu */
+.hover-menu {
+    width: 90px;
+    background-color: #4c5baf;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: width 0.3s ease;
+    color: white;
+    text-align: center;
+    cursor: pointer;
+}
+
+.hover-menu:hover {
+    width: 150px;
+}
+
+.hover-menu span {
+    color: white;
+    display: block;
+    padding: 10px;
+    font-weight: bold;
+}
+
+.menu-content {
+    display: none;
+    flex-direction: column;
+}
+
+.hover-menu:hover .menu-content {
+    display: flex;
+}
+
+.menu-content a {
+    color: white;
+    text-decoration: none;
+    padding: 8px;
+    text-align: left;
+    padding-left: 20px;
+    background-color: #4c5baf;
+}
+
+.menu-content a:hover {
+    background-color: #333;
+}
+
+/* gallery Link */
+#gallery {
+    width: 70px;
+    background-color: #4c5baf;
+    border-radius: 8px;
+    padding: 10px;
+    text-align: center;
+    transition: width 0.3s ease;
+}
+
+#gallery:hover {
+    width: 130px;
+}
+
+#gallery a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+#gallery a:hover {
+    color: #333;
+}
+
+
+
+/* 文字及標題樣式 */
+h1, h2, h3 {
+    color: var(--primary-color);
+    text-align: center;
+    font-weight: 700;
+    margin: 20px 0;
+}
+
+.center-text {
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #333;
+    margin: 1rem 0;
+}
+
+/* 主內容區域 */
+.main-content {
+    margin-left: 20px; /* 確保內容區域和側邊欄間有間隔 */
+    padding: 20px;
+    transition: margin-left 0.3s;
+    width: 100%;
+    
+}
+
+.main-content.shifted {
+    margin-left: 80px;
+}
+
+.section {
+    margin-bottom: 40px;
+    background-color: #ffffff;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+/* 固定效果的目錄 */
+/* .toc {
+    background-color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    padding: 20px;
+    margin: 20px 0;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.toc h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.toc ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.toc ul li {
+    margin-bottom: 8px;
+}
+
+.toc ul li a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.toc ul li a:hover {
+    color: var(--secondary-color);
+    text-decoration: underline;
+} */
+
+/* 個人簡介 */
+.intro-container {
+    display: flex;
+    gap: 5%;
+    justify-content: center;
+}
+
+.image-cell {
+    text-align: left;
+    line-height: 1.6;
+    
+    margin: 10px 0;
+    width: 30%;
+    /* font-size: 2rem; */
+}
+
+.info-cell{
+    color: var(--primary-color);
+    font-weight: bold;
+    line-height: 1.6;
+    padding-top: 5%;
+    padding-left: 10%;
+    margin: 10px 0;
+    font-size: 1.2rem; 
+}
+
+.description {
+    font-size: 1.1rem;
+    text-align: justify;
+    /* text-indent: 2em; */
+    font-family: var(--font-serif);
+    line-height: 1.8;
+    color: #666;
+    margin: 15px 10%;
+}
+
+
+/* 學歷區塊 */
+.education-container {
+    display: flex;
+    gap: 80px;
+    justify-content: center;
+}
+
+.education-item {
+    width: 100%;
+    max-width: 300px;
+    text-align: center;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.school-image {
+    width: 100%;
+    height: auto;
+    background-size: cover;
+    background-position: center;
+    border-radius: 10px;
+}
+
+.school-info {
+    text-align: center;
+    padding-top: 5%;
+    width: 30%;
+    font-size: 1.1rem;
+}
+
+/* 經歷區塊 */
+.experience-container {
+    display: grid;
+    gap: 10px;
+    grid-template-columns: 1fr 1fr;
+}
+
+.experience-item {
+    background-color: var(--background-light);
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 1.1rem;
+}
+
+/* 表格及圖片欄位 */
+table {
+    width: 100%;
+    margin: 20px 0;
+    border-collapse: collapse;
+    border-radius: 10px;
+}
+
+.image-cell img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin: 10px 0;
+}
+
+
+/* 興趣卡片區塊 */
+.hobby-container {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+}
+
+.hobby-card {
+    flex: 1;
+    background-color: var(--background-light);
+    border-radius: 10px;
+    overflow: hidden;
+    text-align: center;
+    font-size: 1.1rem;
+}
+
+.hobby-image {
+    width: 100%;
+    height: 250px;
+    background-size: cover;
+    background-position: center;
+}
+
+
+.website-container {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+}
+
+.website-links {
+    flex: 1;
+    overflow: hidden;
+    text-align: center;
+    font-size: 1.1rem;
+}
+
+.website-image {
+    width: 100%;
+    max-width: 100px;
+    height: auto;
+}
+
+/* 連結 */
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+    
+}
+
+a:hover {
+    color: var(--side-color);
+    text-decoration: none;
+}
+
+
+
+/* 響應式設計 */
+@media (max-width: 768px) {
+    .side-menu {
+        width: 60px;
+    }
+
+    .main-content {
+        margin-left: 60px;
+    }
+
+    .experience-container {
+        grid-template-columns: 1fr;
+    }
+
+    .hobby-container {
+        flex-direction: column;
+    }
+
+    .hobby-card, .education-item {
+        width: 100%;
+        max-width: 300px;
+        margin: 10px auto;
+    }
+
+    .website-container {
+        flex-direction: column;
+    }
+
+    .website-card {
+        width: 100%;
+        max-width: 300px;
+        margin: 10px auto;
+    }
+
+    .toc {
+        position: relative;
+        top: auto;
+    }
+
+    table, .info-cell ul, .description {
+        font-size: 14px;
+    }
+}

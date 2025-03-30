@@ -1,7 +1,7 @@
 ---
 import type { HTMLAttributes } from 'astro/types';
 
-type Type = "primary" | "secondary" | "tertiary";
+type Type = "primary" | "secondary" | "tertiary" | "quaternary";
 const { href = "", text = "", style = "primary", class: className, ...props } = Astro.props;
 
 interface Props extends HTMLAttributes<'a'> {
@@ -14,6 +14,7 @@ const types: Record<Type, string> = {
   primary: "hover:shadow-pblueHover",
   secondary: "hover:shadow-pgreenHover",
   tertiary: "hover:shadow-ppinkHover",
+  quaternary:"hover:shadow-pyellowHover"
 };
 
 const getType = (style: Type) => {
