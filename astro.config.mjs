@@ -14,7 +14,9 @@ export default defineConfig({
   output:'static',
   integrations: [mdx(), sitemap(), tailwind(), icon()],
   adapter: netlify(),
-  imageService: 'passthrough',
+  image: {
+    service: "passthrough",
+  },
 });
 
 // export default defineConfig({
