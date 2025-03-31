@@ -14,4 +14,7 @@ export default defineConfig({
   output:'server',
   integrations: [mdx(), sitemap(), tailwind(), icon()],
   adapter: netlify(),
+  server: {
+    allowedHosts: ['leafish.xyz']
+  }
 });
