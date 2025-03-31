@@ -1,11 +1,30 @@
 ---
+// src/pages/gallery/[category].astro
 import { getCollection } from 'astro:content';
+import { type CollectionEntry } from 'astro:content';
 import BaseHead from "@/components/BaseHead.astro";
 import Header from "@/components/Header.astro";
 import Footer from "@/components/Footer_gallery.astro";
 
+export async function getStaticPaths() {
+  // 獲取所有的 gallery 項目
+  const galleryItems = await getCollection("gallery");
+
+  // 基於每個項目的 category 屬性來生成路徑
+  const categories = [...new Set(galleryItems.map(item => item.data.category))]; // 取得所有類別
+
+  // 返回每個 category 的靜態路徑
+  return categories.map((category) => ({
+    params: { category }, // 動態路由參數
+  }));
+}
+
+export const prerender = true;
+
+type Props = CollectionEntry<"gallery">;
+
+// 取得當前路由的 category 參數
 const { category } = Astro.params;
-console.log("Current category:", category);
 
 // 取得該分類的所有作品
 const galleryItems = await getCollection('gallery', (entry) => entry.data.category === category);
@@ -16,7 +35,7 @@ if (galleryItems.length === 0) {
 
 // 取第一個作品
 const artFile = galleryItems[0];
-console.log("artFile:", JSON.stringify(artFile, null, 2));
+// console.log("artFile:", JSON.stringify(artFile, null, 2));
 
 // **使用 Astro 內建 Markdown 渲染內容**
 const rendered = artFile.rendered?.html || "<p>No content available.</p>";
