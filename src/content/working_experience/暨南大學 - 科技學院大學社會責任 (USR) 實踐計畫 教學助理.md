@@ -7,6 +7,6 @@ subtitle: "科技學院大學社會責任實踐計畫 教學助理"
 description: "Sep. 2023 - PRESENT."
 icon: '1'
 pubDate: 'Jul 08 2022'
-heroImage: ""
+heroImage: "/src/assets/adriana.jpg"
 
 ---

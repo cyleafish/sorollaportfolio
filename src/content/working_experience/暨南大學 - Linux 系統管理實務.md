@@ -7,6 +7,6 @@ subtitle: "Linux 系統管理實務 課程助理"
 description: "Sep. 2024 - PRESENT."
 icon: '1'
 pubDate: 'Jul 08 2022'
-heroImage: ""
+heroImage: "/src/assets/adriana.jpg"
 
 ---
