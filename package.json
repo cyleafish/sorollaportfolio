@@ -7,7 +7,7 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "deploy:cloudflare": "astro build && wrangler pages deploy dist/static --project-name=leafishweb"
+    "deploy:cloudflare": "astro build && wrangler pages deploy dist --project-name=leafishweb"
   },
   "dependencies": {
     "@astrojs/mdx": "^4.0.7",
