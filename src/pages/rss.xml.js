@@ -4,7 +4,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 
 export async function GET(context) {
   // 檢查 context.site 是否存在，如果不存在，手動設置為您的站點 URL
-  const siteUrl = context.site || 'https://yourwebsite.com'; // 設置您的網站 URL
+  const siteUrl = context.site || 'https://leafish.xyz'; // 設置您的網站 URL
   
   const collections = ['blog', 'projects', 'working_experience', 'activity_experience', 'gallery'];
   let items = [];
