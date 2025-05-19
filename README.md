@@ -34,7 +34,7 @@ src
 │   ├── Header.astro
 │   ├── HeaderLink.astro
 │   ├── Hero.astro
-│   └── WhatIDo.astro
+│   └── About_Me.astro
 ├── consts.ts
 ├── content
 │   └── blog

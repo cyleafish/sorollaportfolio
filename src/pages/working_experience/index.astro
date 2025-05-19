@@ -4,7 +4,7 @@ import Header from "@/components/Header.astro";
 import Footer from "@/components/Footer.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../../consts";
 import { getCollection } from "astro:content";
-import WhatIDo from "@/components/WhatIDo.astro";
+import About_Me from "@/components/About_Me.astro";
 const working_experience = (await getCollection("working_experience")).sort(
   (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
 );
@@ -21,7 +21,7 @@ const working_experience = (await getCollection("working_experience")).sort(
   <body>
     <Header />
     <main class="container mx-auto md:px-10 py-20">
-      <WhatIDo />
+      <About_Me />
     </main>
     <Footer />
   </body>

@@ -7,7 +7,7 @@ icon: "5"
 
 #collection: "projects"
 pubDate: "2024"
-heroImage: "/src/assets/adriana.jpg"
+heroImage: "/src/assets/garbage-sort.png"
 ---
 
 # 垃圾快快回收了：自動辨識垃圾種類系統

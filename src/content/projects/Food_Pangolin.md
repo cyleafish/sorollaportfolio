@@ -6,7 +6,7 @@ icon: '1'
 
 # collection: "projects"
 pubDate: '2024'
-heroImage: "/src/assets/fran.jpg"
+heroImage: "/src/assets/Food-Pangolin.png"
 ---
 # Food Pangolin：外送系統
 ## 專案概述
