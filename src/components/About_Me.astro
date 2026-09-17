@@ -32,35 +32,11 @@ const getRandomClass = () => {
   <p class="text-pblack">
     我是個對新事物充滿好奇心的探索者，喜歡挑戰各種有趣的專案，然後把學到的技能變成自己的超能力⚡！
     <br>
-    運用技術來解決生活中的大小問題，有時也只是單純想讓生活變得更有趣而已 🎮。
+    想把技術拿來做酷酷的事，如果可以搞錢那就更好了 🎮。
   </p>
   <br>
-  <h4 class="text-3xl font-bold py-5">Project</h4>
-  <ul class="flex flex-wrap justify-center md:justify-center gap-8 py-1">
-    {
-      projects.map((projects) => {
-        const randomClass = getRandomClass();
-        return (
-          <li class="w-60 text-left rounded-3xl border-1 border-black shadow-card group hover:shadow-hover transition  px-4 py-3 flex flex-col gap-6">
-            <a href={`/projects/${projects.id}/`} class="flex flex-col gap-4">
-              <div
-                class={`${randomClass} text-4xl p-2 self-start border-1 border-black shadow-card1 group-hover:shadow-card transition`}
-              >
-                <Icon name={projects.data.icon} />
-              </div>
-              <h4 class="text-xl font-semibold">{projects.data.title}</h4>
-              <p class="date -mt-4 text-sm  font-light">
-                {projects.data.subtitle}
-              </p>
-            </a>
-            <div set:html={projects.data.description} class="text-sm leading-tight"/>
-          </li>
-        );
-      })
-    }
-  </ul>
-  <br>
-  <h4 class="text-3xl font-bold py-5">Working Experience</h4>
+
+<h4 class="text-3xl font-bold py-5">Working Experience</h4>
   <ul class="flex flex-wrap justify-center md:justify-center gap-8 py-1">
     {
       working_experience.map((working_experience) => {
@@ -86,6 +62,33 @@ const getRandomClass = () => {
     }
   </ul>
   <br>
+
+  <h4 class="text-3xl font-bold py-5">Project</h4>
+  <ul class="flex flex-wrap justify-center md:justify-center gap-8 py-1">
+    {
+      projects.map((projects) => {
+        const randomClass = getRandomClass();
+        return (
+          <li class="w-60 text-left rounded-3xl border-1 border-black shadow-card group hover:shadow-hover transition  px-4 py-3 flex flex-col gap-6">
+            <a href={`/projects/${projects.id}/`} class="flex flex-col gap-4">
+              <div
+                class={`${randomClass} text-4xl p-2 self-start border-1 border-black shadow-card1 group-hover:shadow-card transition`}
+              >
+                <Icon name={projects.data.icon} />
+              </div>
+              <h4 class="text-xl font-semibold">{projects.data.title}</h4>
+              <p class="date -mt-4 text-sm  font-light">
+                {projects.data.subtitle}
+              </p>
+            </a>
+            <div set:html={projects.data.description} class="text-sm leading-tight"/>
+          </li>
+        );
+      })
+    }
+  </ul>
+  <br>
+  
   <h4 class="text-3xl font-bold py-5">Activity Experience</h4>
   <ul class="flex flex-wrap justify-center md:justify-center gap-8 py-1">
     {
